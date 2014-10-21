@@ -15,11 +15,13 @@
  */
 package android.support.v7.widget;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
-
 import com.example.android.leanback.R;
 
+@TargetApi(Build.VERSION_CODES.L)
 class CardViewApi21 implements CardViewImpl {
 
     @Override
@@ -27,8 +29,8 @@ class CardViewApi21 implements CardViewImpl {
             float radius) {
         cardView.setBackgroundDrawable(new RoundRectDrawable(backgroundColor, radius));
         View view = (View) cardView;
-        // view.setClipToOutline(true);
-        // view.setElevation(context.getResources().getDimension(R.dimen.cardview_elevation));
+        view.setClipToOutline(true);
+        view.setElevation(context.getResources().getDimension(R.dimen.cardview_elevation));
     }
 
     @Override

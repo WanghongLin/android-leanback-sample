@@ -16,12 +16,14 @@
 
 package android.support.v4.content;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 
+@TargetApi(Build.VERSION_CODES.L)
 class ContextCompatApi21 {
     public static Drawable getDrawable(Context context, int id) {
-//        return context.getDrawable(id);
-    	return null;
+        return context.getDrawable(id);
     }
 }

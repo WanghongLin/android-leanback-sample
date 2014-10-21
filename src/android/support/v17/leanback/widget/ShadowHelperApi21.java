@@ -13,14 +13,17 @@
  */
 package android.support.v17.leanback.widget;
 
-import com.example.android.leanback.R;
+import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.view.ViewGroup;
+import android.os.Build;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.example.android.leanback.R;
+
+@TargetApi(Build.VERSION_CODES.L)
 class ShadowHelperApi21 {
 
     static int sNormalZ = Integer.MIN_VALUE;
@@ -37,18 +40,18 @@ class ShadowHelperApi21 {
     public static Object addShadow(ViewGroup shadowContainer) {
         initializeResources(shadowContainer.getResources());
         shadowContainer.setBackground(new ColorDrawable(Color.TRANSPARENT));
-        // shadowContainer.setZ(sNormalZ);
+        shadowContainer.setZ(sNormalZ);
         return shadowContainer;
     }
 
     /* set shadow focus level 0 for unfocused 1 for fully focused */
     public static void setShadowFocusLevel(Object impl, float level) {
         ViewGroup shadowContainer = (ViewGroup) impl;
-        // shadowContainer.setZ(sNormalZ + level * (sFocusedZ - sNormalZ));
+        shadowContainer.setZ(sNormalZ + level * (sFocusedZ - sNormalZ));
     }
 
     public static void setZ(View view, float level) {
         initializeResources(view.getResources());
-        // view.setZ(sNormalZ + level * (sFocusedZ - sNormalZ));
+        view.setZ(sNormalZ + level * (sFocusedZ - sNormalZ));
     }
 }

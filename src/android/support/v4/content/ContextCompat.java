@@ -16,17 +16,16 @@
 
 package android.support.v4.content;
 
+import java.io.File;
+
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.support.v4.os.EnvironmentCompat;
-
-import java.io.File;
 
 /**
  * Helper for accessing features in {@link android.content.Context}

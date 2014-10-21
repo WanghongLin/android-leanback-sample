@@ -16,13 +16,15 @@
 
 package android.support.v4.content.res;
 
+import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 
+@TargetApi(Build.VERSION_CODES.L)
 class ResourcesCompatApi21 {
     public static Drawable getDrawable(Resources res, int id, Theme theme) {
-//        return res.getDrawable(id, theme);
-    	return null;
+        return res.getDrawable(id, theme);
     }
 }

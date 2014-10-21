@@ -29,19 +29,12 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-//		android.provider.Settings.Global.putString(getContentResolver(),
-//				android.provider.Settings.Global.HTTP_PROXY,
-//				"54.201.58.152:6634");
-//		System.getProperties().setProperty("http.proxyHost", "54.201.58.152");
-//		System.getProperties().setProperty("http.proxyPort", "6634");
-//		Log.d(TAG, System.getProperty("http.proxyHost") + ":" + System.getProperty("http.proxyPort"));
-//		System.getProperties().setProperty("socksProxyHost", "192.168.1.100");
-//		System.getProperties().setProperty("socksProxyPort", "5000");
-//		Log.d(TAG, System.getProperty("socksProxyHost") + ":" + System.getProperty("socksProxyPort"));
-//		System.setProperty("sun.net.spi.nameservice.nameservers", "8.8.8.8");
-//		System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
-//		Log.d(TAG, System.getProperty("sun.net.spi.nameservice.nameservers"));
+		if (getResources().getBoolean(R.bool.using_http_proxy)) {
+			System.setProperty("http.proxyHost", "192.168.1.105");
+			System.setProperty("http.proxyPort", "6635");
+			System.setProperty("sun.net.spi.nameservice.nameservers", "8.8.8.8,8.8.4.4");
+			System.setProperty("sun.net.spi.nameservice.provider.1", "dns,sun");
+		}
 	}
 }
 
